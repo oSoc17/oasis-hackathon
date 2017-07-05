@@ -64,14 +64,14 @@ export class IRailService {
     }
 
     getRoute(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
-        var params = new URLSearchParams();
+        let params = new URLSearchParams();
         params.set("to", to);
         params.set("from", from);
         params.set("time", time);
         params.set('timeSel', timeSel);
         params.set('date', date);
         params.set("format", "json");
-        var options = new RequestOptions();
+        let options = new RequestOptions();
         options.headers = this.options.headers;
         options.responseType = this.options.responseType;
         options.search = params;

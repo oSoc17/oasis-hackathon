@@ -41,7 +41,12 @@ export class Graph {
     }
 
     public lineChartOptions:any = {
-        responsive: true
+        responsive: true,
+        elements: {
+            line: {
+                tension: 0
+            }
+        }
     };
   
     public lineChartLegend:boolean = true;

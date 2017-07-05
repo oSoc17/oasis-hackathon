@@ -32,9 +32,9 @@ export class ConnectionQuery {
         if (arriveSt.id === departSt.id) {
             console.log("stations can't be the same.");
         } else {
-            this.IRailService.getRouteReadable(arriveSt.id, departSt.id, this.depTime.selectedTime, 
+            this.IRailService.getRoutesReadable(arriveSt.id, departSt.id, this.depTime.selectedTime, 
                 this.depDate.selectedDate, "arrive").then((data) => {
-                    console.log(data);
+                    console.log(data.connection[0]);
                 }).catch(e => console.log(e));
         }
     }

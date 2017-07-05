@@ -53,18 +53,18 @@ export class IRailService {
 
     /* DATE FORMAT: DD/MM/YYYY */
     /* TIME FORMAT: HH:MM */
-    getRouteReadable(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
+    getRoutesReadable(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
         date = new Date(date).toLocaleDateString('en-GB');
         time = time.replace(/\:/g,'');
         console.log(date);
         date = date.replace(/\//g,'');
         date = `${date.substring(0, 4)}${date.substring(6, 8)}`;
-        console.log("Time: " + time + " Date: " + date)
-        return this.getRoute(to, from, time, date, timeSel);
+        console.log("Time: " + time + " Date: " + date);
+        return this.getRoutes(to, from, time, date, timeSel);
     }
 
-    getRoute(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
-        let params = new URLSearchParams();
+    getRoutes(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
+      let params = new URLSearchParams();
         params.set("to", to);
         params.set("from", from);
         params.set("time", time);

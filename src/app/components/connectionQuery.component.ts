@@ -18,13 +18,24 @@ export class ConnectionQuery {
     @ViewChild(DepartTime) depTime: DepartTime;
     @ViewChild(DepartDate) depDate: DepartDate;
 
+    constructor(
+        private IRailService: IRailService
+    ){}
+
     calcDuration() {
         console.log(`${this.depStation.selectedStation} to ${this.arrStation.selectedStation}`);
     }
 
     clickCalculate() {
-        console.log(`${this.depStation.selectedStation.standardname} to ${this.arrStation.selectedStation.standardname} at 
-            ${this.depTime.selectedTime} - ${this.depDate.selectedDate}`);
-        
+        let arriveSt = this.arrStation.selectedStation;
+        let departSt = this.depStation.selectedStation;
+        if (arriveSt.id === departSt.id) {
+            console.log("stations can't be the same.");
+        } else {
+            this.IRailService.getRouteReadable(arriveSt.id, departSt.id, this.depTime.selectedTime, 
+                this.depDate.selectedDate, "arrive").then((data) => {
+                    console.log(data);
+                }).catch(e => console.log(e));
+        }
     }
 }

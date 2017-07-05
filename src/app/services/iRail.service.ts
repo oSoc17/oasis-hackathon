@@ -51,21 +51,34 @@ export class IRailService {
             .catch(this.handleError);
     }
 
-    getRoute(to:string, from:string,time:number, timeSel:string):Promise<any>{
-      var params = new URLSearchParams();
-      params.set("to", to);
-      params.set("from", from);
-      params.set("time",""+ time);
-      params.set('timeSel', timeSel);
-      params.set("format", "json");
-      var options = new RequestOptions();
-      options.headers = this.options.headers;
-      options.responseType = this.options.responseType;
-      options.search = params;
+    /* DATE FORMAT: DD/MM/YYYY */
+    /* TIME FORMAT: HH:MM */
+    getRouteReadable(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
+        date = new Date(date).toLocaleDateString('en-GB');
+        time = time.replace(/\:/g,'');
+        console.log(date);
+        date = date.replace(/\//g,'');
+        date = `${date.substring(0, 4)}${date.substring(6, 8)}`;
+        console.log("Time: " + time + " Date: " + date)
+        return this.getRoute(to, from, time, date, timeSel);
+    }
 
-      return this.http.get(`${this.iRailUrl}/connections`, options)
-          .toPromise()
-          .then((response)=>response.json())
-          .catch(this.handleError);
+    getRoute(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
+        var params = new URLSearchParams();
+        params.set("to", to);
+        params.set("from", from);
+        params.set("time", time);
+        params.set('timeSel', timeSel);
+        params.set('date', date);
+        params.set("format", "json");
+        var options = new RequestOptions();
+        options.headers = this.options.headers;
+        options.responseType = this.options.responseType;
+        options.search = params;
+
+        return this.http.get(`${this.iRailUrl}/connections`, options)
+            .toPromise()
+            .then((response)=>response.json())
+            .catch(this.handleError);
     }
 }

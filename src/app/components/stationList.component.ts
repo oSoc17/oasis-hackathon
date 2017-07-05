@@ -9,6 +9,7 @@ let stationsDummy = require('../../dummydata/stations.json');
     templateUrl: './templates/stationList.component.html',
     styleUrls: ['./styles/stationList.component.scss']
 })
+
 export class StationList implements OnInit {
     stations: any;
     currQuery: string;

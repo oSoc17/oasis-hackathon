@@ -6,7 +6,7 @@
     </header>
     <div class="oasis-layout__content">
       <h4>Which route do you usually take?</h4>
-      <connectionquery></connectionquery>
+      <connectionquery (routeUpdated)='handleRouteUpdate($event)'></connectionquery>
       <h4>Here are your alternatives!</h4>
       <graphsection></graphsection>
     </div>

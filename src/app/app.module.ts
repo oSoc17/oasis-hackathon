@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+
 /* Components */
 import { AppComponent } from './components/app.component';
 import { StationList } from './components/stationList.component';
@@ -31,7 +33,8 @@ import { IRailService } from './services/iRail.service'
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [ IRailService ],
   bootstrap: [ AppComponent ]

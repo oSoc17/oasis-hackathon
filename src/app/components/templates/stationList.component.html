@@ -1,6 +1,4 @@
-<select id="selectfrom">
-    <option value="8892007">Gent Sint Pieters</option>
-    <option value="8812005">Brussel Noord</option>
-    <option value="8891702">Oostende</option>
-    <option value="8893013">Merelbeke</option>
+<!-- TODO: Add a search to this -->
+<select [(ngModel)]="selectedStation" id="selectfrom" class="stationList" (ngModelChange)="onSelect($event)">
+    <option *ngFor="let station of stations" [ngValue]="station">{{station.standardname}}</option>
 </select>

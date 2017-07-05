@@ -5,12 +5,20 @@ body {
     font-family: Montserrat;
 }
 
+main {
+    margin: 25px;
+}
+
 h1 {
     font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 25px;
 }
 
 h2 {
     font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-top: 10px;
 }
 
 h3 {
@@ -19,4 +27,8 @@ h3 {
 
 h4 {
     font-size: 1.1rem;
+}
+
+p {
+    margin-top: 10px;
 }

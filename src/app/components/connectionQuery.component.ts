@@ -4,6 +4,8 @@ import { StationList } from './stationList.component';
 import { DepartTime } from './departTime.component';
 import { DepartDate } from './departDate.component';
 
+import { IRailService } from '../services/iRail.service';
+
 @Component({
     selector: 'connectionquery',
     templateUrl: './templates/connectionQuery.component.html',
@@ -23,5 +25,6 @@ export class ConnectionQuery {
     clickCalculate() {
         console.log(`${this.depStation.selectedStation.standardname} to ${this.arrStation.selectedStation.standardname} at 
             ${this.depTime.selectedTime} - ${this.depDate.selectedDate}`);
+        
     }
 }

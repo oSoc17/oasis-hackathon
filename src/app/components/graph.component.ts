@@ -28,7 +28,9 @@ export class Graph {
   
     // events
     public chartClicked(e:any):void {
-        console.log("Value at this point: " + this.lineChartData[0].data[parseInt(e.active[0]._index)]);
+        if (e.active[0] !== undefined) {
+            console.log("Value at this point: " + this.lineChartData[0].data[parseInt(e.active[0]._index)]);
+        }
     }
     
     public chartHovered(e:any):void {

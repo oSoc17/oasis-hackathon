@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, ResponseContentType, RequestOptions, URLSearchParams } from '@angular/http';
+import { Headers, Http, ResponseContentType, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()

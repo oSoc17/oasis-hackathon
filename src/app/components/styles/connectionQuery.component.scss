@@ -1,7 +1,18 @@
 .connquery {
-  max-width: 500px;
+  max-width: 400px;
   margin: auto;
   h2 {
     text-align: right;
+  }
+  button {
+    padding: 10px;
+    background: none;
+    border: 2px solid grey;
+    float: right;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .clearfix {
+    clear: both;
   }
 }

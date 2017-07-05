@@ -1,10 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-
 import { StationList } from './stationList.component';
-import { DepartTime } from './departTime.component';
-import { DepartDate } from './departDate.component';
-
-import { IRailService } from '../services/iRail.service';
 
 @Component({
     selector: 'connectionquery',
@@ -15,8 +10,6 @@ import { IRailService } from '../services/iRail.service';
 export class ConnectionQuery {
     @ViewChild('departure') depStation: StationList;
     @ViewChild('arrival') arrStation: StationList;
-    @ViewChild(DepartTime) depTime: DepartTime;
-    @ViewChild(DepartDate) depDate: DepartDate;
 
     constructor(
         private IRailService: IRailService

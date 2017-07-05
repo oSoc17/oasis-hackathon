@@ -10,9 +10,9 @@ let stationsDummy = require('../../dummydata/stations.json');
     styleUrls: ['./styles/stationList.component.scss']
 })
 export class StationList implements OnInit {
-    stations: object;
+    stations: any;
     currQuery: string;
-    selectedStation: object;
+    selectedStation: any;
 
     constructor(
         private IRailService: IRailService

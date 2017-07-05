@@ -34,7 +34,7 @@ export class ConnectionQuery {
         } else {
             this.IRailService.getRoutesReadable(arriveSt.id, departSt.id, this.depTime.selectedTime, 
                 this.depDate.selectedDate, "arrive").then((data) => {
-                    console.log(data);
+                    console.log(data.connection[0]);
                 }).catch(e => console.log(e));
         }
     }

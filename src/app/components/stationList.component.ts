@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { IRailService } from '../services/iRail.service';
 
+let stationsDummy = require('../../dummydata/stations.json');
+
 @Component({
     selector: 'stationlist',
     templateUrl: './templates/stationList.component.html',
@@ -18,18 +20,11 @@ export class StationList implements OnInit {
 
     ngOnInit() {
         this.IRailService.getAllStations().then((d) => {
-            this.stations = d;
+            this.stations = d.station;
             this.selectedStation = this.stations[0];
         }).catch(e => console.log(e));
         /* Dummy content */
-        /*this.stations = [{
-            id: "S01283",
-            standardname: "Gent-Sint-Pieters"
-        },
-        {
-            id: "S01483",
-            standardname: "Gent-Zuid"
-        }];
+        /*this.stations = stationsDummy.station;
         this.selectedStation = this.stations[0];
         */
     }

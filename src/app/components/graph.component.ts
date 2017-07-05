@@ -40,17 +40,17 @@ export class Graph {
     public lineChartOptions:any = {
         responsive: true
     };
-
+  
     public lineChartLegend:boolean = true;
     public lineChartType:string = 'line';
-  
+
     // events
     public chartClicked(e:any):void {
         if (e.active[0] !== undefined) {
             console.log("Value at this point: " + this.lineChartData[0].data[parseInt(e.active[0]._index)]);
         }
     }
-    
+
     public chartHovered(e:any):void {
         console.log(e);
     }

@@ -5,7 +5,7 @@
       <h1 class="oasis-text--secondary"><img class="logo" src="assets/img/logo-white.png" />Proof of concept</h1>
     </header>
     <div class="oasis-layout__content">
-      <connectionquery></connectionquery>
+      <connectionquery (routeUpdated)='handleRouteUpdate($event)'></connectionquery>
       <graphsection></graphsection>
     </div>
     <footer>

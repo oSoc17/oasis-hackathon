@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Graph } from './graph.component';
 
 @Component({
     selector: 'graphsection',
@@ -7,5 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class GraphSection {
-    
+    @ViewChild(Graph) graph: Graph;
+
+    updateData(routes) {
+        console.log("update the data")
+        this.graph.drawGraph(routes);
+    }
 }

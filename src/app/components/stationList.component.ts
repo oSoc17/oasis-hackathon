@@ -18,9 +18,13 @@ export class StationList implements OnInit {
         private IRailService: IRailService
     ) { }
 
+    private transformiRailResponse(data) {
+        return data.station.sort((a, b) => a.standardname > b.standardname ? 1 : (a.standardname < b.standardname) ? -1 : 0);
+    }
+
     ngOnInit() {
         this.IRailService.getAllStations().then((d) => {
-            this.stations = d.station;
+            this.stations = this.transformiRailResponse(d);
             this.selectedStation = this.stations[0];
         }).catch(e => console.log(e));
         /* Dummy content */
@@ -31,7 +35,7 @@ export class StationList implements OnInit {
 
     getSuggestions() {
         this.IRailService.getStations(this.currQuery).then((d) => {
-            this.stations = d;
+            this.stations = this.transformiRailResponse(d);
         }).catch(e => console.log(e));
     }
 

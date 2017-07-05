@@ -1,32 +1,16 @@
 /* GENERAL PAGE CSS */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-
 body {
     font-family: Montserrat;
 }
 
 main {
-  height: 100%;
-}
-
-header {
-  padding: 10px 25px;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background: grey;
-  .oasis-footer__icons {
-    right: 0;
-  }
+    margin: 25px;
 }
 
 h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-transform: uppercase;
     margin-bottom: 25px;
 }
@@ -47,14 +31,4 @@ h4 {
 
 p {
     margin-top: 10px;
-}
-.oasis-text--secondary {
-  font-style: italic;
-  color: grey;
-  text-transform: none;
-}
-.oasis-layout__content {
-  max-width: 1000px;
-  margin: 10px auto;
-  padding: 20px;
 }

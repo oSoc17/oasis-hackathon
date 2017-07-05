@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, ResponseContentType, RequestOptions, URLSearchParams } from '@angular/http';
+import { Headers, Http, ResponseContentType, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -49,23 +49,5 @@ export class IRailService {
             .toPromise()
             .then((response) => response.json())
             .catch(this.handleError);
-    }
-
-    getRoute(to:string, from:string,time:number, timeSel:string):Promise<any>{
-      var params = new URLSearchParams();
-      params.set("to", to);
-      params.set("from", from);
-      params.set("time",""+ time);
-      params.set('timeSel', timeSel);
-      params.set("format", "json");
-      var options = new RequestOptions();
-      options.headers = this.options.headers;
-      options.responseType = this.options.responseType;
-      options.search = params;
-
-      return this.http.get(`${this.iRailUrl}/connections`, options)
-          .toPromise()
-          .then((response)=>response.json())
-          .catch(this.handleError);
     }
 }

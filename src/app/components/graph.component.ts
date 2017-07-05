@@ -15,15 +15,11 @@ export class Graph {
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(148,159,177,0.8)'
         }
-    public lineChartData:Array<any> = [
-        {data: [65, 59, 80, 81, 56, 55, 40], label: 'Travel time'},
-        {data: [65, 59, 80, 81, 56, 55, 40], label: 'Travel time'},
-        {data: [65, 59, 80, 81, 56, 55, 40], label: 'Travel time'}];
-    public lineChartLabels:Array<any> = ["1494053400", "1494082200", "1494083340", "1494089400", "1494090540", "1494097740"];
-    public lineChartColors:Array<any> = [this.color];
-    private content = "";
+        
+    public lineChartData:Array<any>;
+    public lineChartLabels:Array<any>;
+    public lineChartColors:Array<any>;
     
-
     drawGraph(routes) {
         let parser = new Parser();
         let parsedData = parser.parseRaw(routes);

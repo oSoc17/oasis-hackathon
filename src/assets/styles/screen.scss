@@ -17,8 +17,6 @@ header {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 75px;
   padding-top: 20px;
@@ -42,6 +40,10 @@ h3 {
 
 h4 {
   font-size: 1.1rem;
+  text-align: center;
+  color: #999;
+  margin-bottom: 50px;
+  margin-top: 35px;
 }
 
 p {
@@ -63,8 +65,8 @@ p {
 }
 .oasis-layout__content {
   max-width: 1000px;
-  margin: 10px auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 img.logo {
   height: 25px;

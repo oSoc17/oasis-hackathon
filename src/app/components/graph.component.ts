@@ -15,8 +15,8 @@ export class Graph {
     };
     public lineChartColors:Array<any> = [
         { // grey
-        backgroundColor: 'rgba(148,159,177,0.2)',
-        borderColor: 'rgba(148,159,177,1)',
+        backgroundColor: 'rgba(33,179,190,0.2)',
+        borderColor: 'rgb(33,179,190)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
@@ -25,14 +25,14 @@ export class Graph {
     ];
     public lineChartLegend:boolean = true;
     public lineChartType:string = 'line';
-  
+
     // events
     public chartClicked(e:any):void {
         if (e.active[0] !== undefined) {
             console.log("Value at this point: " + this.lineChartData[0].data[parseInt(e.active[0]._index)]);
         }
     }
-    
+
     public chartHovered(e:any):void {
         console.log(e);
     }

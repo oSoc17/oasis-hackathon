@@ -50,12 +50,12 @@ export class IRailService {
 
     getAllStations(): Promise<any> {
         /* TODO: find a way to cache this for about a day? */
-        /*return this.http.get(`${this.iRailUrl}/stations?format=json`, this.options)
+        return this.http.get(`${this.iRailUrl}/stations?format=json`, this.options)
             .toPromise()
             .then((response) => response.json())
-            .catch(this.handleError);*/
+            .catch(this.handleError);
         /* USE DUMMY DATA */
-        return this.fakeReply(stationsData);
+        /*return this.fakeReply(stationsData);*/
     }
 
     /* DATE FORMAT: DD/MM/YYYY */
@@ -71,7 +71,7 @@ export class IRailService {
     }
 
     getRoutes(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
-      /*let params = new URLSearchParams();
+      let params = new URLSearchParams();
         params.set("to", to);
         params.set("from", from);
         params.set("time", time);
@@ -86,9 +86,9 @@ export class IRailService {
         return this.http.get(`${this.iRailUrl}/connections`, options)
             .toPromise()
             .then((response) => response.json())
-            .catch(this.handleError);*/
+            .catch(this.handleError);
 
         /* Return Fake Data */
-        return this.fakeReply(connectionsData);
+        /* return this.fakeReply(connectionsData);*/
     }
 }

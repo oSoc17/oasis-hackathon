@@ -6,13 +6,10 @@ export class Parser {
     return seconds / 60;
   }
 
-  convDepartTime(compressed) {
-    /* TODO: Look up how the timestamp is made and make a decent function */
-    compressed = parseInt(compressed, 0);
-    let minutes = Math.round(compressed / 3600 / 3600);
-    let hours = Math.round(minutes / 60 - 1);
-    minutes -= hours * 60;
-    return `${hours}:${minutes}`;
+  convDepartTime(timestamp) {
+    let date = new Date(parseInt(timestamp));
+    console.log(date);
+    return `${date.getUTCHours()}:${date.getUTCMinutes()}`;
   }
 
   parseRaw(raw) {
@@ -30,11 +27,11 @@ export class Parser {
     console.log(conn);
     for (let i=0; i < conn.length; i++) {
       let travelDuration = this.convToReadableTime(parseInt(conn[i].duration));
-      let randDelay = Math.round(Math.random() * 25);
-      let minimum = travelDuration - randDelay;
-      res.data.data[0].data.push(minimum > 0 ? minimum : 0);
-      res.data.data[1].data.push(travelDuration);
-      res.data.data[2].data.push(travelDuration + randDelay);
+      let minDelay = Math.round(Math.random() * 20);
+      let maxDelay = Math.round(Math.random() * 20) + minDelay;
+      res.data.data[0].data.push(travelDuration);
+      res.data.data[1].data.push(travelDuration + minDelay);
+      res.data.data[2].data.push(travelDuration + maxDelay);
       res.data['labels'].push(`${this.convDepartTime(conn[i].departure.time)} - ${conn[i].departure.vehicle}`);
     }
 

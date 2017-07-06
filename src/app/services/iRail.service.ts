@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, ResponseContentType, RequestOptions, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+/* DUMMYDATA */
+const tripsData = require("../../dummydata/trips.json");
+const connectionsData = require("../../dummydata/connections.json");
+const stationsData = require("../../dummydata/stations.json");
+
 @Injectable()
 export class IRailService {
     private iRailUrl = "http://api.irail.be";
@@ -18,18 +23,18 @@ export class IRailService {
         return Promise.reject(error.message || error);
     }
 
-    /* This feature does not exist in api.irail.be but does in irail.be */
-    /* "Access-Control-Allow-Origin: *" is missing from the ressource */
-    /* Meaning this can't be used outside of iRail.be? There is probably a way around this? */
-    /*getStations(query: string): Promise<any> {
-        let url = 'http://irail.be';
-        return this.http.get(`${url}/stations/NMBS?q=${query}`, this.options)
-            .toPromise()
-            .then((response) => response.json())
-            .catch(this.handleError);
-    }*/
+    fakeReply(data:any): Promise<any> {
+        return new Promise((resolve, reject) => {
+            try {
+                console.log(data);
+                resolve(data);
+            } catch (e) {
+                // Require failed
+                reject(e);
+            }
+        });
+    }
 
-    /* New way of getting the search array? */
     getStations(query: string): Promise<any> {
         return new Promise((resolve, reject) => {
             this.getAllStations().then((data) => {
@@ -45,10 +50,12 @@ export class IRailService {
 
     getAllStations(): Promise<any> {
         /* TODO: find a way to cache this for about a day? */
-        return this.http.get(`${this.iRailUrl}/stations?format=json`, this.options)
+        /*return this.http.get(`${this.iRailUrl}/stations?format=json`, this.options)
             .toPromise()
             .then((response) => response.json())
-            .catch(this.handleError);
+            .catch(this.handleError);*/
+        /* USE DUMMY DATA */
+        return this.fakeReply(stationsData);
     }
 
     /* DATE FORMAT: DD/MM/YYYY */
@@ -64,7 +71,7 @@ export class IRailService {
     }
 
     getRoutes(to:string, from:string, time:string, date:string, timeSel:string):Promise<any>{
-      let params = new URLSearchParams();
+      /*let params = new URLSearchParams();
         params.set("to", to);
         params.set("from", from);
         params.set("time", time);
@@ -78,7 +85,10 @@ export class IRailService {
 
         return this.http.get(`${this.iRailUrl}/connections`, options)
             .toPromise()
-            .then((response)=>response.json())
-            .catch(this.handleError);
+            .then((response) => response.json())
+            .catch(this.handleError);*/
+
+        /* Return Fake Data */
+        return this.fakeReply(connectionsData);
     }
 }

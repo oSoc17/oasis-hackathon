@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Parser } from '../../../data/parser';
+import { Parser } from '../classes/parser';
 
 @Component({
     selector: 'graph',

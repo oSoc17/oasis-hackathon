@@ -2,8 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { IRailService } from '../services/iRail.service';
 
-let stationsDummy = require('../../dummydata/stations.json');
-
 @Component({
     selector: 'stationlist',
     templateUrl: './templates/stationList.component.html',
@@ -20,6 +18,7 @@ export class StationList implements OnInit {
     ) { }
 
     private transformiRailResponse(data) {
+        console.log(data);
         return data.station.sort((a, b) => a.standardname > b.standardname ? 1 : (a.standardname < b.standardname) ? -1 : 0);
     }
 
@@ -28,10 +27,6 @@ export class StationList implements OnInit {
             this.stations = this.transformiRailResponse(d);
             this.selectedStation = this.stations[0];
         }).catch(e => console.log(e));
-        /* Dummy content */
-        /*this.stations = stationsDummy.station;
-        this.selectedStation = this.stations[0];
-        */
     }
 
     getSuggestions() {

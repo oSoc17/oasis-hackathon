@@ -1,18 +1,13 @@
-const path = require('path');
-const fs = require('fs');
+const tripData = require("../../dummydata/trips.json");
 
 class Trips {
   findById(id) {
-    let trips = JSON.parse(fs.readFileSync(path.join(__dirname, './trips.json'), {
-      encoding: 'utf8'
-    }));
+    let trips = tripData;
     return trips.filter((trip) => trip["@id"] === id)[0];
   }
 
   findByArrivalStopAndTime(arrivalStop, arrivalTime) {
-    let trips = JSON.parse(fs.readFileSync(path.join(__dirname, './trips.json'), {
-      encoding: 'utf8'
-    }));
+    let trips = tripData;
     return trips.filter((trip) => {
       let date = new Date(trip.arrivalTime);
       let time = date.getTime();

@@ -9,7 +9,7 @@ export class Parser {
   convDepartTime(timestamp) {
     let date = new Date(parseInt(timestamp));
     console.log(date);
-    return `${date.getUTCHours()}:${date.getUTCMinutes()}`;
+    return `${date.getHours()}:${date.getMinutes()}`;
   }
 
   parseRaw(raw) {
